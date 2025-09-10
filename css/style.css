@@ -576,4 +576,64 @@ footer {
     transform: scale(1);          /* reste visible */
   }
 }
+/* Burger invisible sur desktop */
+.burger {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25px;
+  height: 20px;
+}
+
+.burger div {
+  width: 100%;
+  height: 3px;
+  background-color: #333;
+  border-radius: 2px;
+}
+
+/* Media query pour mobile */
+@media screen and (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    right: 0;
+    height: 100vh;
+    top: 0;
+    background-color: #fff;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 10;
+  }
+
+  .nav-links li {
+    margin: 2rem 0;
+  }
+
+  .burger {
+    display: flex;
+  }
+
+  /* Activer le menu */
+  .nav-active {
+    transform: translateX(0);
+  }
+}
+
+/* Animation du burger */
+.burger.toggle .line1 {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.burger.toggle .line2 {
+  opacity: 0;
+}
+
+.burger.toggle .line3 {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
 
