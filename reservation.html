@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Réservation - ILEA Café</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- 🌟 Navbar -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <a href="index.html">
+          <img src="images/logo.png" alt="ILEA Café Logo" class="logo-img" />
+        </a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="about.html">À propos</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="gallery.html">Galerie</a></li>
+        <li><a href="reservation.html" class="active">Réservation</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <button class="btn-reserve">
+        <a href="https://wa.me/221778272306" target="_blank">Réserver</a>
+      </button>
+    </nav>
+  </header>
+
+  <!-- 🌟 Section Réservation -->
+  <main class="page-content">
+    <section class="reservation-section">
+      <h1>Réservez votre <span class="highlight">table</span></h1>
+      <p>Choisissez votre date et vos préférences. Nous vous attendons avec plaisir !</p>
+
+      <form id="reservationForm" class="reservation-form">
+        <div class="form-group">
+          <label for="name">Nom complet</label>
+          <input type="text" id="name" name="name" placeholder="Votre nom" required />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Adresse e-mail</label>
+          <input type="email" id="email" name="email" placeholder="exemple@email.com" required />
+        </div>
+
+        <div class="form-group">
+          <label for="date">Date</label>
+          <input type="date" id="date" name="date" required />
+        </div>
+
+        <div class="form-group">
+          <label for="time">Heure</label>
+          <input type="time" id="time" name="time" required />
+        </div>
+
+        <div class="form-group">
+          <label for="people">Nombre de personnes</label>
+          <input type="number" id="people" name="people" min="1" max="20" required />
+        </div>
+
+        <button type="submit" class="btn">Confirmer la réservation</button>
+      </form>
+
+      <!-- Message de confirmation -->
+      <p id="confirmationMessage" class="confirmation-message"></p>
+    </section>
+  </main>
+
+  <!-- 🌟 Footer -->
+  <footer>
+    <p>© 2025 ILEA Café. Tous droits réservés.</p>
+    <p>Made by sekbusiness ❤️ in Dakar</p>
+  </footer>
+
+  <!-- 🌟 JS Réservation -->
+  <script>
+    const reservationForm = document.getElementById("reservationForm");
+    const confirmation = document.getElementById("confirmationMessage");
+
+    reservationForm.addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const date = document.getElementById("date").value;
+      const time = document.getElementById("time").value;
+      const people = document.getElementById("people").value;
+
+      if(name && email && date && time && people) {
+        const subject = `Réservation ILEA Café - ${name}`;
+        const body = `
+Bonjour ILEA Café,
+
+Nom : ${name}
+Email : ${email}
+Date : ${date}
+Heure : ${time}
+Nombre de personnes : ${people}
+
+J'attends votre confirmation !
+        `;
+
+        // Encode pour URL
+        const mailtoLink = `mailto:contact@ileacafe.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+        // Ouvre le client mail
+        window.location.href = mailtoLink;
+
+        // Message confirmation
+        confirmation.style.display = "block";
+        confirmation.style.color = "green";
+        confirmation.textContent = "Votre réservation est prête dans votre application mail !";
+
+        reservationForm.reset();
+      } else {
+        confirmation.style.display = "block";
+        confirmation.style.color = "red";
+        confirmation.textContent = "Veuillez remplir tous les champs.";
+      }
+    });
+  </script>
+</body>
+</html>

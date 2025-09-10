@@ -1,0 +1,579 @@
+/* 🌐 Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "Poppins", sans-serif;
+  background: #ffe4e1;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* 🌟 Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+  background: rgba(0,0,0,0.8);
+  color: white;
+  position: fixed;
+  top: 0; left: 0; width: 100%;
+  transition: background 0.3s, box-shadow 0.3s;
+  z-index: 2000; /* 🔥 Correction : navbar toujours au-dessus */
+}
+.navbar .nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+.navbar .nav-links a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.navbar .nav-links a:hover {
+  color: #ff4d6d;
+}
+.btn-reserve a {
+  background: #ff4d6d;
+  padding: 0.6rem 1rem;
+  border-radius: 5px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform 0.3s;
+}
+.btn-reserve a:hover {
+  transform: scale(1.05);
+}
+
+/* 🌟 Hero */
+.hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  padding: 0 1rem;
+}
+.hero h1 {
+  font-size: 3rem;
+  animation: fadeIn 2s ease-in-out;
+}
+.hero p {
+  margin: 1rem 0;
+  animation: slideUp 2s ease-in-out;
+}
+.btn {
+  background: #ff4d6d;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(255,77,109,0.6);
+}
+
+/* 🌟 Hero Video */
+.hero-video {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: -1; /* 🔥 reste derrière tout */
+}
+.hero-content {
+  position: relative;
+  z-index: 1; /* 🔥 passe au-dessus de la vidéo */
+  text-align: center;
+  color: white;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* 🌟 Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes slideUp {
+  from { transform: translateY(40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+@keyframes fadeInMessage {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 🌟 Footer */
+footer {
+  text-align: center;
+  padding: 2rem;
+  background: #111111;
+  color: #aaa;
+}
+
+/* Logo */
+.logo img.logo-img {
+  height: 50px;
+  width: auto;
+  display: block;
+}
+
+/* 🌟 Mise en page des pages */
+.page-content {
+  max-width: 1100px;
+  margin: 120px auto 60px;
+  padding: 0 1rem;
+}
+
+/* 🌟 Section about */
+.about-section h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.about-section p {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  color: #555;
+}
+.highlight { color: #ff4d6d; }
+
+/* 🌟 Grilles */
+.about-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+.about-grid.reverse { flex-direction: row-reverse; }
+.about-grid img {
+  width: 100%;
+  max-width: 450px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+.about-text {
+  flex: 1;
+  min-width: 280px;
+}
+.about-text h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+.about-text p {
+  color: #444;
+  line-height: 1.7;
+}
+
+/* 🌟 Section Menu */
+.menu-section h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.menu-section p {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  color: #555;
+}
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+.menu-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 1.5rem;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.menu-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+.menu-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+.menu-card h3 { font-size: 1.3rem; margin-bottom: 0.5rem; }
+.menu-card p { font-size: 0.95rem; color: #666; margin-bottom: 0.8rem; }
+.menu-card .price { font-weight: bold; color: #ff4d6d; font-size: 1.1rem; }
+
+/* 🌟 Section Galerie */
+.gallery-section h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.gallery-section p {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  color: #555;
+}
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.2rem;
+}
+.gallery-grid img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: transform 0.3s, opacity 0.3s, box-shadow 0.3s;
+}
+.gallery-grid img:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+}
+
+/* 🌟 Réservation */
+.reservation-section {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+.reservation-section h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+.reservation-section p { margin-bottom: 2rem; color: #555; }
+.reservation-form {
+  display: grid;
+  gap: 1.5rem;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.form-group { text-align: left; }
+.form-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; }
+.form-group input, .form-group textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+.form-group input:focus, .form-group textarea:focus {
+  border-color: #ff4d6d;
+  outline: none;
+  box-shadow: 0 0 8px rgba(255,77,109,0.4);
+}
+/* 🌟 Confirmation Message */
+.confirmation-message {
+  margin-top: 1.5rem;
+  font-weight: bold;
+  color: green;
+  display: none;
+  animation: fadeInMessage 0.5s ease forwards;
+}
+
+/* 🌟 Contact Page */
+.contact-section {
+  max-width: 1000px;
+  margin: 120px auto 60px;
+  padding: 0 20px;
+  text-align: center;
+}
+.contact-section h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+.contact-section .highlight { color: #ff4d6d; }
+.contact-section p { margin-bottom: 2rem; color: #555; }
+
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+.contact-form, .contact-info {
+  flex: 1 1 350px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.contact-form .form-group { margin-bottom: 1rem; text-align: left; }
+.contact-form label { display: block; margin-bottom: 0.5rem; font-weight: 600; }
+.contact-form input, .contact-form textarea {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+.contact-form input:focus, .contact-form textarea:focus {
+  border-color: #ff4d6d;
+  box-shadow: 0 0 8px rgba(255,77,109,0.4);
+}
+.contact-form button.btn {
+  width: 100%;
+  margin-top: 0.5rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.contact-form button.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(255,77,109,0.4);
+}
+
+.contact-info h2 { margin-bottom: 1rem; }
+.contact-info p { margin-bottom: 0.5rem; }
+.contact-info .btn { display: inline-block; margin-top: 1rem; }
+
+/* Carte Google Maps */
+.contact-map {
+  width: 100%;
+  height: 300px;
+  border-radius: 12px;
+  margin-top: 2rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* 🌟 Lightbox overlay */
+.lightbox-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3000; /* 🔥 au-dessus de tout */
+  cursor: pointer;
+}
+.lightbox-overlay img {
+  max-width: 90%;
+  max-height: 80%;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+  transition: transform 0.3s;
+}
+.lightbox-overlay:hover img { transform: scale(1.02); }
+/* 🌟 Images About en cercle */
+.about-img img {
+  width: 280px;              /* taille fixe pour garder la forme ronde */
+  height: 280px;
+  object-fit: cover;         /* garde la proportion de l’image */
+  border-radius: 50%;        /* cercle parfait */
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2); /* joli effet d’ombre */
+  border: 4px solid #fff;    /* petite bordure blanche classe */
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.about-img img:hover {
+  transform: scale(1.05);    /* zoom doux au survol */
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+/* 🌟 Animation pop-in pour le texte de la section À propos */
+.about-section h1, 
+.about-section > p {
+  opacity: 0;
+  transform: scale(0.7) translateY(30px);
+  animation: popIn 0.8s ease-out forwards;
+}
+
+.about-section > p {
+  animation-delay: 0.4s; /* petit décalage après le titre */
+}
+
+.about-section h1, 
+.about-section > p {
+  opacity: 0;
+  transform: scale(0.7) translateY(30px);
+  animation: popIn 0.8s ease-out;
+}
+
+.about-section > p {
+  animation-delay: 0.4s;
+}
+
+/* 🌟 Animation “rideau” pour le texte de la section À propos */
+.about-section h1, 
+.about-section > p {
+  opacity: 0;
+  transform: scaleY(0);        /* rideau fermé verticalement */
+  transform-origin: top;       /* ouverture depuis le haut */
+  animation: curtainOpen 0.8s ease-out forwards;
+}
+
+.about-section > p {
+  animation-delay: 0.3s;       /* petit décalage après le titre */
+}
+
+@keyframes curtainOpen {
+  0% {
+    opacity: 0;
+    transform: scaleY(0);
+  }
+  60% {
+    opacity: 1;
+    transform: scaleY(1.1);   /* effet un peu “exagéré” pour brutalité */
+  }
+  100% {
+    opacity: 1;
+    transform: scaleY(1);     /* texte fixé, reste visible */
+  }
+}
+/* 🌟 Animation rideau pour les textes de la page Menu */
+.menu-section h1, 
+.menu-section > p {
+  opacity: 0;
+  transform: scaleY(0);          /* rideau fermé verticalement */
+  transform-origin: top;         /* ouverture depuis le haut */
+  animation: curtainOpen 0.8s ease-out forwards;
+}
+
+.menu-section > p {
+  animation-delay: 0.3s;         /* petit décalage après le titre */
+}
+
+/* 🌟 Animation pop-in pour les images Menu */
+.menu-card img {
+  opacity: 0;
+  transform: scale(0);           /* commence invisible et réduit */
+  animation: popInImage 0.6s ease-out forwards;
+}
+
+.menu-card:nth-child(1) img { animation-delay: 0.2s; }
+.menu-card:nth-child(2) img { animation-delay: 0.4s; }
+.menu-card:nth-child(3) img { animation-delay: 0.6s; }
+.menu-card:nth-child(4) img { animation-delay: 0.8s; }
+.menu-card:nth-child(5) img { animation-delay: 1s; }
+.menu-card:nth-child(6) img { animation-delay: 1.2s; }
+
+/* Keyframes rideau texte */
+@keyframes curtainOpen {
+  0% {
+    opacity: 0;
+    transform: scaleY(0);
+  }
+  60% {
+    opacity: 1;
+    transform: scaleY(1.1);       /* effet brusque */
+  }
+  100% {
+    opacity: 1;
+    transform: scaleY(1);         /* reste visible */
+  }
+}
+
+/* Keyframes pop-in images */
+@keyframes popInImage {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.2);        /* effet brusque */
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);          /* reste visible */
+  }
+}
+/* 🌟 Animation rideau pour les textes de la page Galerie */
+.gallery-section h1, 
+.gallery-section > p {
+  opacity: 0;
+  transform: scaleY(0);          /* rideau fermé verticalement */
+  transform-origin: top;         /* ouverture depuis le haut */
+  animation: curtainOpenGallery 0.8s ease-out forwards;
+}
+
+.gallery-section > p {
+  animation-delay: 0.3s;         /* petit décalage après le titre */
+}
+
+/* 🌟 Animation pop-in pour les images Galerie */
+.gallery-grid img {
+  opacity: 0;
+  transform: scale(0);           /* commence invisible et réduit */
+  animation: popInGallery 0.6s ease-out forwards;
+}
+
+.gallery-grid img:nth-child(1) { animation-delay: 0.2s; }
+.gallery-grid img:nth-child(2) { animation-delay: 0.4s; }
+.gallery-grid img:nth-child(3) { animation-delay: 0.6s; }
+.gallery-grid img:nth-child(4) { animation-delay: 0.8s; }
+.gallery-grid img:nth-child(5) { animation-delay: 1s; }
+.gallery-grid img:nth-child(6) { animation-delay: 1.2s; }
+.gallery-grid img:nth-child(7) { animation-delay: 1.4s; }
+.gallery-grid img:nth-child(8) { animation-delay: 1.6s; }
+
+/* Keyframes rideau texte */
+@keyframes curtainOpenGallery {
+  0% {
+    opacity: 0;
+    transform: scaleY(0);
+  }
+  60% {
+    opacity: 1;
+    transform: scaleY(1.1);       /* effet brusque */
+  }
+  100% {
+    opacity: 1;
+    transform: scaleY(1);         /* reste visible */
+  }
+}
+
+/* Keyframes pop-in images */
+@keyframes popInGallery {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.2);        /* effet brusque */
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);          /* reste visible */
+  }
+}
+/* 🌟 Animation pop-in pour les images About */
+.about-img img {
+  opacity: 0;
+  transform: scale(0);           /* commence invisible et réduit */
+  animation: popInAbout 0.6s ease-out forwards;
+}
+
+/* Délais en cascade pour chaque image */
+.about-img:nth-child(1) img { animation-delay: 0.2s; }
+.about-img:nth-child(2) img { animation-delay: 0.4s; }
+
+/* Keyframes pop-in images About */
+@keyframes popInAbout {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.2);        /* effet brusque */
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);          /* reste visible */
+  }
+}
+
