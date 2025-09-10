@@ -17,11 +17,22 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  /* 🍔 Menu Burger */
+  const burger = document.querySelector(".burger");
+  const nav = document.querySelector(".nav-links");
+
+  if (burger && nav) {
+    burger.addEventListener("click", () => {
+      nav.classList.toggle("nav-active");
+      burger.classList.toggle("toggle"); // animation du burger
+    });
+  }
+
   /* 🌟 Hero animations (déjà dans CSS mais on peut déclencher JS) */
   const heroH1 = document.querySelector(".hero h1");
   const heroP = document.querySelector(".hero p");
-  heroH1.classList.add("fadeIn");
-  heroP.classList.add("slideUp");
+  if (heroH1) heroH1.classList.add("fadeIn");
+  if (heroP) heroP.classList.add("slideUp");
 
   /* 🌟 Formulaire de réservation */
   const reservationForm = document.querySelector(".reservation-form");
@@ -34,8 +45,10 @@ document.addEventListener("DOMContentLoaded", () => {
       
       // afficher message
       const msg = document.querySelector(".confirmation-message");
-      msg.style.display = "block";
-      msg.innerText = "Réservation confirmée ! Merci 😊";
+      if (msg) {
+        msg.style.display = "block";
+        msg.innerText = "Réservation confirmée ! Merci 😊";
+      }
 
       // reset form
       reservationForm.reset();
@@ -51,8 +64,10 @@ document.addEventListener("DOMContentLoaded", () => {
       console.log("Contact:", Object.fromEntries(formData.entries()));
       
       const msg = document.querySelector(".confirmation-message");
-      msg.style.display = "block";
-      msg.innerText = "Message envoyé avec succès !";
+      if (msg) {
+        msg.style.display = "block";
+        msg.innerText = "Message envoyé avec succès !";
+      }
 
       contactForm.reset();
     });
