@@ -636,3 +636,22 @@ footer {
 .burger.toggle .line3 {
   transform: rotate(45deg) translate(-5px, -6px);
 }
+/* ==========================
+   Safe top for fixed navbar
+   ========================== */
+
+/* variable utilisée pour espace de sécurité (sera mise à jour par JS) */
+:root {
+  --nav-safe-top: 80px; /* fallback */
+}
+
+/* appliquer le padding-top dynamique au conteneur principal */
+main.page-content {
+  padding-top: var(--nav-safe-top, 80px);
+  /* si tu préfères modifier la section seule : .about-section { padding-top: var(--nav-safe-top); } */
+}
+
+/* petit fallback pour mobiles si JS non disponible */
+@media (max-width: 768px) {
+  :root { --nav-safe-top: 110px; }
+}
