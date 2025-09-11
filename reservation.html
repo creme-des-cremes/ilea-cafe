@@ -4,34 +4,135 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Réservation - ILEA Café</title>
-
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <!-- 🌟 Navbar Bootstrap -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-      <a class="navbar-brand fw-bold" href="index.html">
-        <img src="images/logo.png" alt="ILEA Café" style="height:40px; margin-right:8px;">
-        ILEA Café
-      </a>
+  <!-- 🌟 Navbar -->
+  <header>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img src="images/logo.png" alt="ILEA Café Logo" class="logo-img" />
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
-        aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="mainNav">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item"><a class="nav-link" href="about.html">À propos</a></li>
-          <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
-          <li class="nav-item"><a class="nav-link" href="gallery.html">Galerie</a></li>
-          <li class="nav-item"><a class="nav-link active" href="reservation.html">Réservation</a></li>
-          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-        </ul>
-        <a class="btn btn-pink ms-lg-3" href="https://wa.me/221778272306" target="_blank" rel="noopener">Réserver</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">À propos</a></li>
+            <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+            <li class="nav-item"><a class="nav-link" href="gallery.html">Galerie</a></li>
+            <li class="nav-item"><a class="nav-link active" href="reservation.html">Réservation</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          </ul>
+          <a href="https://wa.me/221778272306" target="_blank" class="btn btn-primary ms-lg-3">Réserver</a>
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
+  </header>
+
+  <!-- 🌟 Section Réservation -->
+  <main class="page-content">
+    <section class="reservation-section py-5">
+      <div class="container text-center">
+        <h1 class="mb-3">Réservez votre <span class="highlight">table</span></h1>
+        <p class="mb-5">Choisissez votre date et vos préférences. Nous vous attendons avec plaisir !</p>
+
+        <div class="row justify-content-center">
+          <div class="col-md-8 col-lg-6">
+            <form id="reservationForm" class="reservation-form p-4 shadow rounded bg-light">
+              <div class="mb-3">
+                <label for="name" class="form-label">Nom complet</label>
+                <input type="text" id="name" name="name" class="form-control" placeholder="Votre nom" required />
+              </div>
+
+              <div class="mb-3">
+                <label for="email" class="form-label">Adresse e-mail</label>
+                <input type="email" id="email" name="email" class="form-control" placeholder="exemple@email.com" required />
+              </div>
+
+              <div class="mb-3">
+                <label for="date" class="form-label">Date</label>
+                <input type="date" id="date" name="date" class="form-control" required />
+              </div>
+
+              <div class="mb-3">
+                <label for="time" class="form-label">Heure</label>
+                <input type="time" id="time" name="time" class="form-control" required />
+              </div>
+
+              <div class="mb-3">
+                <label for="people" class="form-label">Nombre de personnes</label>
+                <input type="number" id="people" name="people" class="form-control" min="1" max="20" required />
+              </div>
+
+              <button type="submit" class="btn btn-primary w-100">Confirmer la réservation</button>
+            </form>
+
+            <!-- Message de confirmation -->
+            <p id="confirmationMessage" class="confirmation-message mt-3"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 🌟 Footer -->
+  <footer class="text-center py-3">
+    <p>© 2025 ILEA Café. Tous droits réservés.</p>
+    <p>Made by sekbusiness ❤️ in Dakar</p>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- 🌟 JS Réservation -->
+  <script>
+    const reservationForm = document.getElementById("reservationForm");
+    const confirmation = document.getElementById("confirmationMessage");
+
+    reservationForm.addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const date = document.getElementById("date").value;
+      const time = document.getElementById("time").value;
+      const people = document.getElementById("people").value;
+
+      if(name && email && date && time && people) {
+        const subject = `Réservation ILEA Café - ${name}`;
+        const body = `
+Bonjour ILEA Café,
+
+Nom : ${name}
+Email : ${email}
+Date : ${date}
+Heure : ${time}
+Nombre de personnes : ${people}
+
+J'attends votre confirmation !
+        `;
+
+        // Lien mailto
+        const mailtoLink = `mailto:contact@ileacafe.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        window.location.href = mailtoLink;
+
+        confirmation.style.display = "block";
+        confirmation.style.color = "green";
+        confirmation.textContent = "✅ Votre réservation est prête dans votre application mail !";
+
+        reservationForm.reset();
+      } else {
+        confirmation.style.display = "block";
+        confirmation.style.color = "red";
+        confirmation.textContent = "⚠️ Veuillez remplir tous les champs.";
+      }
+    });
+  </script>
+</body>
+</html>
