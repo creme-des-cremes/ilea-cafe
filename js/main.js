@@ -5,30 +5,31 @@
 // Attendre que le DOM soit chargé
 document.addEventListener("DOMContentLoaded", () => {
   
-  /* 🌐 Navbar scroll effect */
+  /* 🌐 Effet scroll sur la navbar */
   const navbar = document.querySelector(".navbar");
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 50) {
-      navbar.style.background = "rgba(0,0,0,0.95)";
-      navbar.style.boxShadow = "0 4px 12px rgba(0,0,0,0.3)";
-    } else {
-      navbar.style.background = "rgba(0,0,0,0.8)";
-      navbar.style.boxShadow = "none";
-    }
-  });
-
-  /* 🍔 Menu Burger */
-  const burger = document.querySelector(".burger");
-  const nav = document.querySelector(".nav-links");
-
-  if (burger && nav) {
-    burger.addEventListener("click", () => {
-      nav.classList.toggle("nav-active");
-      burger.classList.toggle("toggle"); // animation du burger
+  if (navbar) {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 50) {
+        navbar.style.background = "rgba(0,0,0,0.95)";
+        navbar.style.boxShadow = "0 4px 12px rgba(0,0,0,0.3)";
+      } else {
+        navbar.style.background = "rgba(0,0,0,0.8)";
+        navbar.style.boxShadow = "none";
+      }
     });
   }
 
-  /* 🌟 Hero animations (déjà dans CSS mais on peut déclencher JS) */
+  /* 🚫 Supprimé : ancien burger JS, Bootstrap s’en occupe */
+  // const burger = document.querySelector(".burger");
+  // const nav = document.querySelector(".nav-links");
+  // if (burger && nav) {
+  //   burger.addEventListener("click", () => {
+  //     nav.classList.toggle("nav-active");
+  //     burger.classList.toggle("toggle");
+  //   });
+  // }
+
+  /* 🌟 Hero animations */
   const heroH1 = document.querySelector(".hero h1");
   const heroP = document.querySelector(".hero p");
   if (heroH1) heroH1.classList.add("fadeIn");
@@ -39,27 +40,26 @@ document.addEventListener("DOMContentLoaded", () => {
   if (reservationForm) {
     reservationForm.addEventListener("submit", (e) => {
       e.preventDefault();
-      // récupération des valeurs
+
       const formData = new FormData(reservationForm);
       console.log("Réservation:", Object.fromEntries(formData.entries()));
       
-      // afficher message
       const msg = document.querySelector(".confirmation-message");
       if (msg) {
         msg.style.display = "block";
         msg.innerText = "Réservation confirmée ! Merci 😊";
       }
 
-      // reset form
       reservationForm.reset();
     });
   }
 
-  /* 🌟 Contact form */
+  /* 🌟 Formulaire de contact */
   const contactForm = document.querySelector(".contact-form");
   if (contactForm) {
     contactForm.addEventListener("submit", (e) => {
       e.preventDefault();
+
       const formData = new FormData(contactForm);
       console.log("Contact:", Object.fromEntries(formData.entries()));
       
