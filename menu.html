@@ -4,97 +4,169 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Menu - ILEA Café</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Ton CSS perso -->
   <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    .btn-pink {
+      background: #ff4d6d;
+      color: #fff;
+      border-radius: 30px;
+      padding: 0.45rem 1rem;
+      border: none;
+    }
+    .btn-pink:hover { background: #ff2f55; }
+    .menu-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      padding: 1rem;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .menu-card:hover { transform: translateY(-5px); }
+    .menu-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 0.75rem;
+    }
+    .price {
+      display: inline-block;
+      margin-top: 0.5rem;
+      font-weight: bold;
+      color: #ff4d6d;
+    }
+  </style>
 </head>
 <body>
-  <!-- 🌟 Navbar -->
-  <header>
-    <nav class="navbar">
-      <div class="logo">
-        <a href="index.html">
-          <img src="images/logo.png" alt="ILEA Café Logo" class="logo-img" />
-        </a>
-      </div>
-      <!-- Bouton Burger -->
-<div class="burger">
-  <div class="line1"></div>
-  <div class="line2"></div>
-  <div class="line3"></div>
-</div>
 
-      <ul class="nav-links">
-        <li><a href="index.html">Accueil</a></li>
-        <li><a href="about.html">À propos</a></li>
-        <li><a href="menu.html" class="active">Menu</a></li>
-        <li><a href="gallery.html">Galerie</a></li>
-        <li><a href="reservation.html">Réservation</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-      <button class="btn-reserve">
-        <a href="https://wa.me/221778272306" target="_blank">Réserver</a>
+  <!-- 🌟 Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="images/logo.png" alt="ILEA Café" style="height:40px; margin-right:8px;">
+        <span>ILEA Café</span>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+        aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
       </button>
-    </nav>
-  </header>
+
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">À propos</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="menu.html">Menu</a></li>
+          <li class="nav-item"><a class="nav-link" href="gallery.html">Galerie</a></li>
+          <li class="nav-item"><a class="nav-link" href="reservation.html">Réservation</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+
+        <a class="btn btn-pink ms-lg-3" href="https://wa.me/221778272306" target="_blank" rel="noopener">Réserver</a>
+      </div>
+    </div>
+  </nav>
 
   <!-- 🌟 Section Menu -->
-  <main class="page-content">
-    <section class="menu-section">
-      <h1>Notre <span class="highlight">Menu</span></h1>
-      <p>Découvrez nos boissons, viennoiseries et repas faits maison.</p>
+  <main class="page-content container" role="main">
+    <section class="menu-section py-5">
+      <div class="text-center mb-4">
+        <h1>Notre <span class="highlight">Menu</span></h1>
+        <p>Découvrez nos boissons, viennoiseries et repas faits maison.</p>
+      </div>
 
-      <div class="menu-grid">
+      <div class="row g-4">
         <!-- Item 1 -->
-        <div class="menu-card">
-          <img src="images/the.jpg" alt="The" />
-          <h3>Thé</h3>
-          <p>Parfait pour bien commencer la journée.</p>
-          <span class="price">2 500 CFA</span>
+        <div class="col-md-4">
+          <div class="menu-card">
+            <img src="images/the.jpg" alt="Thé" />
+            <h3>Thé</h3>
+            <p>Parfait pour bien commencer la journée.</p>
+            <span class="price">2 500 CFA</span>
+          </div>
         </div>
         <!-- Item 2 -->
-        <div class="menu-card">
-          <img src="images/mangue.jpg" alt="mangue" />
-          <h3>mangue</h3>
-          <p>Saveur unique.</p>
-          <span class="price">1 500 CFA</span>
+        <div class="col-md-4">
+          <div class="menu-card">
+            <img src="images/mangue.jpg" alt="Mangue" />
+            <h3>Mangue</h3>
+            <p>Saveur unique.</p>
+            <span class="price">1 500 CFA</span>
+          </div>
         </div>
         <!-- Item 3 -->
-        <div class="menu-card">
-          <img src="images/orange.jpg" alt="Orange" />
-          <h3>Orange</h3>
-          <p>Frais, fruité et 100% naturel pour se rafraîchir.</p>
-          <span class="price">3 000 CFA</span>
+        <div class="col-md-4">
+          <div class="menu-card">
+            <img src="images/orange.jpg" alt="Orange" />
+            <h3>Orange</h3>
+            <p>Frais, fruité et 100% naturel pour se rafraîchir.</p>
+            <span class="price">3 000 CFA</span>
+          </div>
         </div>
         <!-- Item 4 -->
-        <div class="menu-card">
-          <img src="images/menu-sandwich.jpg" alt="Sandwich Poulet" />
-          <h3>Sandwich Poulet</h3>
-          <p>Poulet grillé, crudités et sauce maison dans un pain moelleux.</p>
-          <span class="price">3 500 CFA</span>
+        <div class="col-md-4">
+          <div class="menu-card">
+            <img src="images/menu-sandwich.jpg" alt="Sandwich Poulet" />
+            <h3>Sandwich Poulet</h3>
+            <p>Poulet grillé, crudités et sauce maison dans un pain moelleux.</p>
+            <span class="price">3 500 CFA</span>
+          </div>
         </div>
         <!-- Item 5 -->
-        <div class="menu-card">
-          <img src="images/menu-capuccino.jpg" alt="Cappuccino" />
-          <h3>Cappuccino</h3>
-          <p>Équilibre parfait entre espresso, lait chaud et mousse onctueuse.</p>
-          <span class="price">2 800 CFA</span>
+        <div class="col-md-4">
+          <div class="menu-card">
+            <img src="images/menu-capuccino.jpg" alt="Cappuccino" />
+            <h3>Cappuccino</h3>
+            <p>Équilibre parfait entre espresso, lait chaud et mousse onctueuse.</p>
+            <span class="price">2 800 CFA</span>
+          </div>
         </div>
         <!-- Item 6 -->
-        <div class="menu-card">
-          <img src="images/menu-cheesecake.jpg" alt="Cheesecake" />
-          <h3>Cheesecake Maison</h3>
-          <p>Délicieusement crémeux, avec une base biscuit croquante.</p>
-          <span class="price">4 000 CFA</span>
+        <div class="col-md-4">
+          <div class="menu-card">
+            <img src="images/menu-cheesecake.jpg" alt="Cheesecake" />
+            <h3>Cheesecake Maison</h3>
+            <p>Délicieusement crémeux, avec une base biscuit croquante.</p>
+            <span class="price">4 000 CFA</span>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
   <!-- 🌟 Footer -->
-  <footer>
-    <p>© 2025 ILEA Café. Tous droits réservés.</p>
-    <p>Made by sekbusiness ❤️ in Dakar</p>
+  <footer class="text-center py-4 bg-dark text-light mt-4">
+    <div class="container">
+      <p>© 2025 ILEA Café. Tous droits réservés.</p>
+      <p>Made by sekbusiness ❤️ in Dakar</p>
+    </div>
   </footer>
 
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Ton script principal -->
   <script src="js/main.js"></script>
+
+  <!-- Fallback padding-top si besoin -->
+  <script>
+    (function(){
+      function adjustTopPadding(){
+        var navbar = document.querySelector('.navbar');
+        var main = document.querySelector('main.page-content');
+        if (!navbar || !main) return;
+        main.style.paddingTop = (navbar.offsetHeight + 12) + 'px';
+      }
+      adjustTopPadding();
+      window.addEventListener('resize', adjustTopPadding);
+    })();
+  </script>
 </body>
 </html>
